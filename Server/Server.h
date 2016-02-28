@@ -38,6 +38,7 @@
 #include <WS2tcpip.h>
 #include <vector>
 #include <thread>
+#include <ctype.h>
 
 #define SCK_VERSION2 0x0202
 

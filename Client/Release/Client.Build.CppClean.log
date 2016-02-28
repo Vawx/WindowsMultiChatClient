@@ -5,8 +5,12 @@ f:\jchat\client\release\client.exe
 f:\jchat\client\release\client.ipdb
 f:\jchat\client\release\client.iobj
 f:\jchat\client\release\client.pdb
+f:\jchat\client\release\clientdll.ipdb
 f:\jchat\client\release\server.ipdb
+f:\jchat\client\release\clientdll.iobj
 f:\jchat\client\release\server.iobj
+f:\jchat\client\release\clientdll.exp
+f:\jchat\client\release\clientdll.pdb
 f:\jchat\client\release\server.pdb
 f:\jchat\client\release\client.tlog\cl.command.1.tlog
 f:\jchat\client\release\client.tlog\cl.read.1.tlog

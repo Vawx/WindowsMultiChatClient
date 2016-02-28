@@ -166,11 +166,23 @@ ProcessClient( ClientInfo &NewClient, std::vector<ClientInfo> &ClientList, std::
 					else if ( strcmp( command, SETCHANNEL ) == 0 )
 					{
 						int j = 0;
-						for( size_t i = strnlen( command, 512 ) + 2; i < strnlen( tempMessage, 512 ); i++ )
+						for( size_t i = strnlen( command, BUFFER_LENGTH ) + 2; i < strnlen( tempMessage, BUFFER_LENGTH ); i++ )
 						{
-							setAs[ j ] = tempMessage[ i ];
-							j++;
+							if ( tempMessage[i] != ' ' || j != 0 )
+							{
+								if( j == 0 )
+								{
+									char upper = toupper( tempMessage[ i ] );
+									setAs[ j ] = upper;
+								}
+								else
+								{
+									setAs[j] = tempMessage[i];
+								}
+								j++;
+							}
 						}
+						std::cout << "Connecting " << NewClient.Name << " to new channel: " << setAs << std::endl;
 						NewClient.Channel = setAs;
 					}
 					else if( strcmp( command, DISCONNECT ) == 0 )
@@ -219,6 +231,8 @@ DisconnectClient( ClientInfo &NewClient, std::vector<ClientInfo> &ClientList )
 	closesocket( NewClient.Socket );
 	closesocket( ClientList[ NewClient.ID ].Socket );
 	ClientList[ NewClient.ID ].Socket = INVALID_SOCKET;
+	ClientList[ NewClient.ID ].Channel = "General";
+	ClientList[ NewClient.ID ].Name = "DefaultUser";
 
 	for( int i = 0; i < MAX_CLIENTS; i++ )
 	{

@@ -60,7 +60,7 @@ Client::Client()
 							if( strlen( conversion ) > 0 )
 							{
 								// Will have to parse this into two things to verify client went into correct channel with correct name
-								m_SentMessage.Data = L"/SETCHANNEL NotGeneral";
+								m_SentMessage.Data = L"/SETCHANNEL adklfjadf";
 								bRunning = true;
 								Run( );
 							}
